@@ -1,32 +1,52 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Button, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+export default class Touchables extends Component {
+  _onPressButton() {
+    alert('You tapped the button!')
+  }
 
-export default function TabOneScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
-    </View>
-  );
+  _onLongPressButton() {
+    alert('You long-pressed the button!')
+  }
+
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity onPress={this._onPressButton} underlayColor="white">
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Article 1</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this._onPressButton}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Article 2</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    paddingTop: 30,
+    alignItems: 'center'
+  },
+  Button: {
+	alignItems: 'center'
+  }	 ,
+  button: {
+    marginBottom: 30,
+    width: 260,
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#2196F3'
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
+  buttonText: {
+    textAlign: 'center',
+    padding: 20,
+    color: 'white'
+  }
 });
+
