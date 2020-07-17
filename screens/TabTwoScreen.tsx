@@ -13,13 +13,16 @@ const getRemaining = (time) => {
     const secs = time - mins * 60;
     return { mins: formatNumber(mins), secs: formatNumber(secs) };
 }
-
-export default function TabTwoScreen() {
+// var reset, toggle;
+export default function App() {
   const [remainingSecs, setRemainingSecs] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const { mins, secs } = getRemaining(remainingSecs);
 
-  toggle = () => {
+  // var toggle;
+  var toggle = () => {
+    console.log(remainingSecs);
+
     setIsActive(!isActive);
   }
 
@@ -28,14 +31,27 @@ export default function TabTwoScreen() {
     setIsActive(false);
   }
 
+  useEffect(() => {
+    console.log("useEffect called");
+    let interval = null;
+    if (isActive) {
+      interval = setInterval(() => {
+        setRemainingSecs(remainingSecs => remainingSecs + 1);
+      }, 1000);
+    } else if (!isActive && remainingSecs !== 0) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isActive, remainingSecs]);
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <Text style={styles.timerText}>{`${mins}:${secs}`}</Text>
-      <TouchableOpacity onPress={this.toggle} style={styles.button}>
+      <TouchableOpacity onPress={toggle} style={styles.button}>
           <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Start'}</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={this.reset} style={[styles.button, styles.buttonReset]}>
+      <TouchableOpacity onPress={reset} style={[styles.button, styles.buttonReset]}>
           <Text style={[styles.buttonText, styles.buttonTextReset]}>Reset</Text>
       </TouchableOpacity>
     </View>
