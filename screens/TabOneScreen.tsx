@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Button, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { Platform, StyleSheet, Button, Text, TouchableHighlight,
+  TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
 
 export default class Touchables extends Component {
   _onPressButton() {
@@ -24,6 +25,11 @@ export default class Touchables extends Component {
             <Text style={styles.buttonText}>Article 2</Text>
           </View>
         </TouchableOpacity>
+        <TouchableOpacity>
+          <View style={styles.buttonTimer}>
+            <Text style={styles.buttonText}>Timer</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -37,6 +43,9 @@ const styles = StyleSheet.create({
   Button: {
 	alignItems: 'center'
   }	 ,
+  buttonTimer: {
+    flex: 1, flexDirection: 'row'
+  },
   button: {
     marginBottom: 30,
     width: 260,
@@ -49,4 +58,3 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 });
-
