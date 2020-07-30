@@ -13,7 +13,6 @@ const getRemaining = (time) => {
     const secs = time - mins * 60;
     return { mins: formatNumber(mins), secs: formatNumber(secs) };
 }
-// var reset, toggle;
 export default function App() {
   const [remainingSecs, setRemainingSecs] = useState(0);
   const [isActive, setIsActive] = useState(false);
@@ -32,7 +31,6 @@ export default function App() {
   }
 
   useEffect(() => {
-    console.log("useEffect called");
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {

@@ -14,6 +14,7 @@ export default {
           TabTwo: {
             screens: {
               TabTwoScreen: 'two',
+              Breathing: 'three',
             },
           },
         },
