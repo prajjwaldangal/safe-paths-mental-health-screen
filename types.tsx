@@ -9,9 +9,13 @@ export type BottomTabParamList = {
 };
 
 export type TabOneParamList = {
-  TabOneScreen: title;
+  TabOneScreen: Articles;
 };
 
 export type TabTwoParamList = {
+  TabTwoScreen: Timer;
+};
+
+export type TabThreeParamList = {
   TabTwoScreen: Timer;
 };
