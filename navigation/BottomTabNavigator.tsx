@@ -35,13 +35,6 @@ export default function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
       />
-      <BottomTab.Screen
-        name="Breathing"
-        component={Breathing}
-        options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
-        }}
-      />
     </BottomTab.Navigator>
   );
 }
@@ -79,18 +72,5 @@ function TabTwoNavigator() {
         options={{ headerTitle: 'Timer' }}
       />
     </TabTwoStack.Navigator>
-  );
-}
-
-const TabThreeStack = createStackNavigator<TabThreeParamList>();
-function TabThreeNavigator() {
-  return (
-    <TabThreeStack.Navigator>
-      <TabThreeStack.Screen
-        name="Breathing"
-        component={TabThreeScreen}
-        options={{ headerTitle: 'Breathing' }}
-      />
-    </TabThreeStack.Navigator>
   );
 }
