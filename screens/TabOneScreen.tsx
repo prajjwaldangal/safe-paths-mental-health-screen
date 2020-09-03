@@ -6,8 +6,9 @@ import { Platform, StyleSheet, Button, Text, TouchableHighlight,
 
 export default class Touchables extends Component {
   _onPressButton() {
-    axios.get(`url`)
-    .then(res => {
+      axios.get(`http://0.0.0.0:5000`)
+      .then(res => {console.log("Request sent from ios client");
+    })
   }
 
   _onLongPressButton() {
