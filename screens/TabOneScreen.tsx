@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
-import * as request from "request-promise-native";
+// import * as request from "request-promise-native";
+import axios from 'axios';
 import { Platform, StyleSheet, Button, Text, TouchableHighlight,
   TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
 
 export default class Touchables extends Component {
   _onPressButton() {
-      (async () => {
-          const baseUrl = '0.0.0.0:5000';
-          const queryString = '';
-          var options = {
-              uri: baseUrl + queryString,
-          };
-
-          const result = await request.get(options);
-      })()
+    axios.get(`url`)
+    .then(res => {
   }
 
   _onLongPressButton() {
