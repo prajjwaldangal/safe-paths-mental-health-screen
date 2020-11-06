@@ -21,6 +21,7 @@
     "crypto-js": "^4.0.0",
     "expo": "^38.0.10",
     "expo-asset": "~8.1.7",
+    "expo-cli": "^3.28.4",
     "expo-constants": "~9.1.1",
     "expo-font": "^8.2.2",
     "expo-linking": "^1.0.1",

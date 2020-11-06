@@ -10,23 +10,26 @@ export default class Touchables extends Component {
   //   console.log('I was triggered during componentDidMount')
   // }
   _onPressButton() {
-      // axios.get(`http://0.0.0.0:5000/`)
-      axios.get(`http://10.0.0.116:5000/`)
+      // axios.get(`http://127.0.0.1:5000/`)
+      axios.get(`http://192.168.29.156:5000`)
       .then(res => {
-        console.log(res.data);
-        rdrtUrl = res.data;
-        const supported = await Linking.canOpenURL(rdrtUrl);
+        var redirectUrl = "https".concat(JSON.stringify(res.data).split(":\"https")[1]);
+        redirectUrl = redirectUrl.slice(0, redirectUrl.length-2)
+        console.log(typeof(redirectUrl));
+        console.log(redirectUrl);
+        const supported = Linking.canOpenURL(redirectUrl);
+        // 1. open URL in embedded browser
 
         if (supported) {
-          // Opening the link with some app, if the URL scheme is "http" the web link should be opened
-          // by some browser in the mobile
-          await Linking.openURL(rdrtUrl);
+          // Opening the link with some app, if the URL scheme is "http" the web
+          // link should be opened by some browser in the mobile
+          Linking.openURL(redirectUrl);
         } else {
-          Alert.alert(`Don't know how to open this URL: ${rdrtUrl}`);
+          Alert.alert(`Don't know how to open this URL: ${redirectUrl}`);
         }
-    }).catch(function (error) {
-      console.log(error);
-    });
+      }).catch(function (error) {
+        console.log(error);
+      });
   }
 
   _onLongPressButton() {
