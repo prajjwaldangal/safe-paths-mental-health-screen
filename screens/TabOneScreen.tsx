@@ -31,7 +31,6 @@ export default class Touchables extends Component {
         console.log(error);
       });
   }
-
   _onLongPressButton() {
     alert('You long-pressed the button!')
   }
@@ -50,6 +49,11 @@ export default class Touchables extends Component {
             <Text style={styles.buttonText}>Article 2</Text>
           </View>
         </TouchableOpacity>
+        <TouchableOpacity onPress={this._onPressButton} underlayColor="white">
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Article 3</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -60,21 +64,23 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     alignItems: 'center'
   },
-  Button: {
-	alignItems: 'center'
-  }	 ,
   buttonTimer: {
-    flex: 1, flexDirection: 'row'
+    flex: 1,
+    flexDirection: 'row'
   },
   button: {
+    paddingTop: 10,
     marginBottom: 30,
     width: 260,
     alignItems: 'center',
-    backgroundColor: '#2196F3'
+    backgroundColor: '#2196F3',
+    borderStyle: 'dashed'
   },
   buttonText: {
+    marginBottom: 30,
     textAlign: 'center',
-    padding: 20,
+    padding: 10,
+    fontFamily: 'sans-serif',
     color: 'white'
   }
 });

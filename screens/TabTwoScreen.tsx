@@ -13,10 +13,17 @@ const getRemaining = (time) => {
     const secs = time - mins * 60;
     return { mins: formatNumber(mins), secs: formatNumber(secs) };
 }
+
+const getElapsed = (time) => {
+    // enter the duration of meditation
+
+    // fix security alert
+}
 export default function App() {
   const [remainingSecs, setRemainingSecs] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const { mins, secs } = getRemaining(remainingSecs);
+  // const {mins, secs} = getElapsed(elapsedSecs);
 
   // var toggle;
   var toggle = () => {

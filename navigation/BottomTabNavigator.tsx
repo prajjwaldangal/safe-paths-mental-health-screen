@@ -20,7 +20,7 @@ export default function BottomTabNavigator() {
       initialRouteName="Mental Health Support"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="Articles"
+        name="Mental Health Support: Articles"
         component={TabOneNavigator}
         options={{
           title: "Articles",
@@ -55,7 +55,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{ headerTitle: 'Articles' }}
+        options={{ headerTitle: 'Mental Health Support: Articles' }}
       />
     </TabOneStack.Navigator>
   );
@@ -69,7 +69,7 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: 'Timer' }}
+        options={{ headerTitle: 'Mental Health Support: Timer' }}
       />
     </TabTwoStack.Navigator>
   );
